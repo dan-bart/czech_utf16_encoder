@@ -2,14 +2,14 @@ import pandas as pd
 
 class Czech_Hex_Encoder():
     def __init__(self,text):
-        if(len(text) == 1 and ".txt" in text[0]):
-            path = text[0]
+        if(".txt" in text):
+            path = text
             self.filename = path.split("\\")[-1].replace(".txt","")
             self.path = path.replace("\\"+self.filename+".txt","")
             with open(path, encoding='utf-8') as f:
                 self.lines = f.readlines()
             f.close()
-            self.new_file= open(self.path+"\\"+self.filename+"_encoded.txt","w+")
+            self.new_file= open(self.path+"\\"+self.filename+"_utf16.txt","w+")
         else:
             self.lines = text
             self.new_file= open("new_file_encoded.txt","w+")
