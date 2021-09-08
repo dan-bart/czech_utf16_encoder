@@ -9,7 +9,7 @@ class Czech_Hex_Encoder():
             with open(path, encoding='utf-8') as f:
                 self.lines = f.readlines()
             f.close()
-            self.new_file= open(self.path+"\\"+self.filename+"_encoded.txt","w+")
+            self.new_file= open(self.path+"\\"+self.filename+"_utf16.txt","w+")
         else:
             self.lines = text
             self.new_file= open("new_file_encoded.txt","w+")
