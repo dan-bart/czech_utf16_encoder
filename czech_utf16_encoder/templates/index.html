@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Czech Special Sign Encoder</title>
+{% endblock %}
+
+{% block body %}
+
+<h1 style="text-align: center">Czech UTF-16 Hex Encoder</h1>
+<div align="center">
+        <form action="/" method="POST">
+            <dl>
+                <div id="upper">
+                    {{ input_form.input_field(cols=100, rows=10)}}
+                </div>
+                <div id="button">
+                    {{ input_form.submit_field(size = 20)}}
+                </div>
+            </dl>
+        </form>
+        <div id="lower">
+            <form action="/" method="POST">
+                {{ output_form.output_field(cols=100, rows=10)}}
+            </form>
+        </div>
+        <div id="button">
+            <p><a href="/log"><button type="submit" class="btn btn-primary">Go to logs</button></p></a>
+        </div>
+</div>
+
+
+{% endblock %}
