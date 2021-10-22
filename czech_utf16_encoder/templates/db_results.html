@@ -1,0 +1,37 @@
+{% extends "logs.html" %}
+
+{% block body %}
+<div>
+    <div align="center">
+        <h2>{{num_return}} most recent entries to your AWS RDS:</h2>
+    </div>
+    <hr>
+    <table id="logs" class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Entries</th>
+                <th>Outputs</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for z in results %}
+            <tr>
+                <td>{{ z.entry }}</td>
+                <td>{{ z.output }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <hr>
+</div>
+<div align="center">
+    <p><a href="/"><button type="submit" class="btn btn-primary">Return home</button></p></a>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+    $(document).ready(function () {
+        $('#logs').DataTable();
+    });
+</script>
+{% endblock %}

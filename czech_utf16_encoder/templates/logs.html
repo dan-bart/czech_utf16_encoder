@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Czech Special Sign Encoder</title>
+{% endblock %}
+
+{% block body %}
+<div style = "margin-top:50px">
+
+<form align=center method="post" action="/log" id="db_post" name="db_view">
+    <dl>
+        <h3>Enter the number of records to display:</h3>
+        {{ form.hidden_tag() }}
+        {{ form.numRetrieve }}
+        {{form.submit_field(size = 20)}}
+    </dl>
+</form>
+<div align="center">
+    <p><a href="/"><button type="submit" class="btn btn-primary">Return home</button></p></a>
+</div>
+</div>
+{% endblock %}
