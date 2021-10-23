@@ -1,10 +1,12 @@
-from flask import render_template, request
+from flask import Flask,render_template, request
 from czech_utf16_encoder.encoder import Czech_Hex_Encoder
 from czech_utf16_encoder.forms import InputForm,OutputForm,RetrieveDBInfo
 from czech_utf16_encoder.models import Data
-from czech_utf16_encoder import db,app
+from czech_utf16_encoder import db
+from czech_utf16_encoder import app as application 
 
-@app.route('/', methods=['POST', 'GET'])
+@application.route('/', methods=['POST', 'GET'])
+
 def index():
     input_form = InputForm(request.form)
     output_form = OutputForm()
@@ -27,7 +29,8 @@ def index():
         return render_template('index.html',input_form = input_form,output_form = output_form)
 
 
-@app.route("/log",methods = ["POST","GET"])
+
+@application.route("/log",methods = ["POST","GET"])
 def log():
     form_log = RetrieveDBInfo(request.form) 
     print(form_log.validate())
@@ -45,4 +48,4 @@ def log():
     return render_template('logs.html', form=form_log)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    application.run(debug=True)
