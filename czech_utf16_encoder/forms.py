@@ -17,5 +17,5 @@ class OutputForm(FlaskForm):
 
 class RetrieveDBInfo(Form):
     numRetrieve = IntegerField(
-        label='Number of DB Items to Get', description="db_get", validators=[NumberRange(min=0, max=10, message='bla')])
+        label='Number of DB Items to Get', description="db_get", validators=[NumberRange(min=0, max=100)])
     submit_field = SubmitField('Retrieve')

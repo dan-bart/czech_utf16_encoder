@@ -3,12 +3,7 @@ from czech_utf16_encoder.encoder import Czech_Hex_Encoder
 from czech_utf16_encoder.forms import InputForm,OutputForm,RetrieveDBInfo
 from czech_utf16_encoder.models import Data
 from czech_utf16_encoder import db
-from czech_utf16_encoder import app as application
-
-# application = Flask(__name__)
-# application.debug=True
-# # change this to your own value
-# application.secret_key = '1234'   
+from czech_utf16_encoder import app as application 
 
 @application.route('/', methods=['POST', 'GET'])
 def index():
